@@ -5,7 +5,7 @@ export async function get_emission(request: HttpRequest, context: InvocationCont
     context.log(`Http function processed request for url "${request.url}"`);
 
     const id = request.params.id;
-    const emission = findOne(id.toString())
+    const emission = findOne(id)
 
     return { body: JSON.stringify(emission) };
 };
@@ -13,6 +13,6 @@ export async function get_emission(request: HttpRequest, context: InvocationCont
 app.http('get_emission', {
     methods: ['GET'],
     authLevel: 'anonymous',
-    route: 'get_emission/{id:int?}',
+    route: 'get_emission/{id}',
     handler: get_emission
 });
