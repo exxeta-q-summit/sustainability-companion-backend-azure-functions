@@ -7,7 +7,7 @@ export async function create_emission(request: HttpRequest, context: InvocationC
 
     try {
         if (!newEmission.name || newEmission.name.trim() === "") {
-            throw new Error("Could not create todo, because [name] is missing")
+            throw new Error("Could not create emission, because [name] is missing")
         }
         const emission = addEmission(newEmission)
         return { body: JSON.stringify(emission) };

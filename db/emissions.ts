@@ -1,8 +1,8 @@
 export const emissionMap = new Map<String, Emission>();
 
 export interface Emission {
-    id?: String
-    name: string;
+    id?: String;
+    name: String;
     createdAt: Date;
 }
 
