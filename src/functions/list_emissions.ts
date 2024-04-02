@@ -4,7 +4,6 @@ import { findAll } from "../../db/emissions";
 export async function list_emissions(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
     const emissions = findAll();
-    console.log({ emissions })
     return { body: JSON.stringify(emissions) };
 };
 
