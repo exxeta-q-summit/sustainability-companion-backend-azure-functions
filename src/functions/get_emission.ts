@@ -5,7 +5,8 @@ export async function get_emission(request: HttpRequest, context: InvocationCont
     context.log(`Http function processed request for url "${request.url}"`);
 
     const id = request.params.id;
-    const emission = findOne(id)
+    const emission = findOne(id);
+    if (!emission) { return { body: `User with ID ${id} not found` } };
 
     return { body: JSON.stringify(emission) };
 };
