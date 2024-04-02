@@ -1,5 +1,3 @@
-import { ObjectId } from "mongodb";
-
 export const emissionMap = new Map<String, Emission>();
 
 export interface Emission {
@@ -10,7 +8,7 @@ export interface Emission {
 
 export function addEmission(newEmission: Emission): Emission {
     newEmission.createdAt = new Date();
-    let id = new ObjectId().toString();
+    let id = (Math.random() + 1).toString(36).substring(2);
     newEmission.id = id
 
     emissionMap.set(id, newEmission);
